@@ -1,5 +1,7 @@
 
-/*  CONFIGURACIÓN GENERAL */
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
 
 * {
     margin: 0;
@@ -14,6 +16,10 @@
     --azul: #66c0f4;
     --texto: #c7d5e0;
     --verde: #a4d007;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 body {
@@ -32,7 +38,8 @@ a:hover {
     color: white;
 }
 
-button, input {
+button,
+input {
     font: inherit;
 }
 
@@ -45,11 +52,14 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* ===== ENCABEZADO ===== */
+/* =========================================
+   ENCABEZADO
+========================================= */
 
-.encabezado, header {
+.encabezado,
+header {
     background: var(--fondo-oscuro);
-    padding: 22px max(5%, calc((100% - 1200px)/2));
+    padding: 22px max(5%, calc((100% - 1200px) / 2));
 }
 
 .encabezado {
@@ -93,9 +103,12 @@ button:disabled {
     border-radius: 3px;
 }
 
-/* ===== NAVEGACIÓN ===== */
+/* =========================================
+   NAVEGACIÓN
+========================================= */
 
-nav, .menu-principal {
+nav,
+.menu-principal {
     background: linear-gradient(90deg, #315b7c, #172a42);
     padding: 0 5%;
 }
@@ -118,7 +131,8 @@ nav a {
     transition: .2s;
 }
 
-nav a:hover, nav a.activo {
+nav a:hover,
+nav a.activo {
     background: #66c0f4;
     color: #102032;
 }
@@ -130,7 +144,9 @@ nav a:hover, nav a.activo {
     border-radius: 4px;
 }
 
-/* ===== TIENDA PRINCIPAL ===== */
+/* =========================================
+   TIENDA PRINCIPAL
+========================================= */
 
 .tienda {
     max-width: 1200px;
@@ -138,18 +154,22 @@ nav a:hover, nav a.activo {
     padding: 25px 20px 70px;
 }
 
-/* ===== BANNER PRINCIPAL ===== */
+/* =========================================
+   BANNER PRINCIPAL
+========================================= */
 
 .hero {
     min-height: 410px;
     display: flex;
     align-items: center;
     background:
-        linear-gradient(90deg,
-            rgba(8,15,25,.97),
-            rgba(8,15,25,.72),
-            rgba(8,15,25,.12)),
-        url("../img/banner.jpg") center/cover;
+        linear-gradient(
+            90deg,
+            rgba(8, 15, 25, .97),
+            rgba(8, 15, 25, .72),
+            rgba(8, 15, 25, .12)
+        ),
+        url("../img/banner.jpg") center / cover;
     border: 1px solid #38536c;
     box-shadow: 0 10px 35px #0006;
 }
@@ -181,7 +201,8 @@ nav a:hover, nav a.activo {
     margin-bottom: 28px;
 }
 
-.boton-principal, .boton {
+.boton-principal,
+.boton {
     display: inline-block;
     background: linear-gradient(90deg, #06a8e9, #2878c8);
     padding: 14px 25px;
@@ -192,12 +213,15 @@ nav a:hover, nav a.activo {
     transition: .2s;
 }
 
-.boton-principal:hover, .boton:hover {
+.boton-principal:hover,
+.boton:hover {
     filter: brightness(1.2);
     transform: translateY(-2px);
 }
 
-/* ===== SECCIONES ===== */
+/* =========================================
+   SECCIONES
+========================================= */
 
 .seccion-tienda {
     margin-top: 55px;
@@ -223,7 +247,9 @@ nav a:hover, nav a.activo {
     font-size: 13px;
 }
 
-/* ===== JUEGOS DESTACADOS ===== */
+/* =========================================
+   JUEGOS DESTACADOS
+========================================= */
 
 .destacados {
     display: grid;
@@ -279,7 +305,9 @@ nav a:hover, nav a.activo {
     font-weight: bold;
 }
 
-/* ===== OFERTAS ===== */
+/* =========================================
+   OFERTAS
+========================================= */
 
 .ofertas {
     display: grid;
@@ -340,7 +368,9 @@ nav a:hover, nav a.activo {
     margin-top: 5px;
 }
 
-/* ===== CATEGORÍAS ===== */
+/* =========================================
+   CATEGORÍAS
+========================================= */
 
 .lista-categorias {
     display: grid;
@@ -366,7 +396,9 @@ nav a:hover, nav a.activo {
     transform: translateY(-4px);
 }
 
-/* ===== OTRAS PÁGINAS ===== */
+/* =========================================
+   OTRAS PÁGINAS
+========================================= */
 
 main:not(.tienda) {
     max-width: 1200px;
@@ -393,7 +425,9 @@ main:not(.tienda) {
     margin-bottom: 18px;
 }
 
-/* ===== FORMULARIOS ===== */
+/* =========================================
+   FORMULARIOS
+========================================= */
 
 .contenedor-formulario {
     max-width: 600px;
@@ -438,7 +472,9 @@ form input:focus {
     margin: 0;
 }
 
-form button, #btnVerMas, .agregar-carrito {
+form button,
+#btnVerMas,
+.agregar-carrito {
     background: linear-gradient(90deg, #06a8e9, #2878c8);
     color: white;
     border: none;
@@ -447,7 +483,8 @@ form button, #btnVerMas, .agregar-carrito {
     font-weight: bold;
 }
 
-form button:hover, #btnVerMas:hover,
+form button:hover,
+#btnVerMas:hover,
 .agregar-carrito:hover {
     filter: brightness(1.2);
 }
@@ -456,7 +493,9 @@ form button:hover, #btnVerMas:hover,
     margin-top: 18px;
 }
 
-/* ===== TABLAS ===== */
+/* =========================================
+   TABLAS
+========================================= */
 
 table {
     width: 100%;
@@ -464,7 +503,8 @@ table {
     margin: 25px 0;
 }
 
-th, td {
+th,
+td {
     padding: 16px;
     text-align: center;
     border-bottom: 1px solid #37506a;
@@ -479,14 +519,17 @@ td {
     background: #15283a;
 }
 
+/* CORREGIDO: sin display: none permanente */
+
 #informacionExtra {
-    display: none;
     margin-top: 20px;
     padding: 25px;
     background: #20384d;
 }
 
-/* ===== CATÁLOGO ===== */
+/* =========================================
+   CATÁLOGO
+========================================= */
 
 .productos {
     display: grid;
@@ -517,7 +560,9 @@ td {
     font-weight: bold;
 }
 
-/* ===== CARRITO ===== */
+/* =========================================
+   CARRITO
+========================================= */
 
 .cantidad {
     width: 80px;
@@ -533,7 +578,9 @@ td {
     color: #b9e74b;
 }
 
-/* ===== BUSCADOR ===== */
+/* =========================================
+   BUSCADOR
+========================================= */
 
 .buscador form {
     max-width: 650px;
@@ -550,7 +597,9 @@ td {
     border-left: 4px solid #66c0f4;
 }
 
-/* ===== PIE DE PÁGINA ===== */
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
 
 footer {
     background: #171a21;
@@ -569,14 +618,18 @@ footer p {
     margin: 8px 0;
 }
 
-/* ===== ADAPTACIÓN A CELULARES ===== */
+/* =========================================
+   ADAPTACIÓN A CELULARES
+========================================= */
 
 @media (max-width: 850px) {
+
     .destacados {
         grid-template-columns: 1fr;
     }
 
-    .ofertas, .productos {
+    .ofertas,
+    .productos {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -586,6 +639,7 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
     .encabezado {
         flex-direction: column;
         text-align: center;
@@ -612,7 +666,8 @@ footer p {
         padding: 25px;
     }
 
-    .ofertas, .productos {
+    .ofertas,
+    .productos {
         grid-template-columns: 1fr;
     }
 
@@ -630,8 +685,9 @@ footer p {
     }
 }
 
-
-/* ===== SISTEMA DE CUENTAS ===== */
+/* =========================================
+   SISTEMA DE CUENTAS
+========================================= */
 
 .opciones-cuenta {
     display: flex;
@@ -720,12 +776,12 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
     .opciones-cuenta {
         justify-content: center;
         flex-wrap: wrap;
     }
 }
-
 
 /* =========================================
    CARRITO DE COMPRAS
@@ -758,8 +814,6 @@ footer p {
     max-width: 450px;
     line-height: 1.7;
 }
-
-
 
 #carritoVacio[hidden],
 #carritoContenido[hidden] {
@@ -896,6 +950,7 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
     .resumen-carrito {
         text-align: center;
         padding: 20px;
@@ -911,9 +966,8 @@ footer p {
     }
 }
 
-
 /* =========================================
-   PÁGINA QUIÉNES SOMOS 
+   PÁGINA QUIÉNES SOMOS
 ========================================= */
 
 .pagina-nosotros {
@@ -1096,7 +1150,6 @@ footer p {
     background: #203d54;
 }
 
-/* INFORMACIÓN ADICIONAL */
 
 .nosotros-extra-seccion {
     background: #142436;
@@ -1111,8 +1164,8 @@ footer p {
     line-height: 1.7;
 }
 
+
 .nosotros-extra-seccion #informacionExtra {
-    display: none;
     margin-top: 25px;
     padding: 0;
     background: transparent;
@@ -1128,7 +1181,7 @@ footer p {
     padding: 25px;
     background: #1c344a;
     border: 1px solid #36526b;
-    border-radius: 6px;
+    border-radius: 10px;
 }
 
 .extra-card h3 {
@@ -1150,12 +1203,14 @@ footer p {
 /* DISEÑO RESPONSIVE */
 
 @media (max-width: 1050px) {
+
     .equipo-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 700px) {
+
     .nosotros-hero {
         padding: 35px 22px;
     }
@@ -1182,10 +1237,9 @@ footer p {
     }
 }
 
-
-/* ==========================================
+/* =========================================
    DÓNDE ENCONTRARNOS - REDES SOCIALES
-========================================== */
+========================================= */
 
 .contacto-seccion {
     margin-top: 50px;
@@ -1253,6 +1307,7 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
     .contacto-enlaces {
         flex-direction: column;
     }
