@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus Games | Registro</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+            <span class="logo-icono">🎮</span>
+            <h1>NEXUS <span>GAMES</span></h1>
+        </div>
+
+        <div class="encabezado-derecha">
+
+            <!-- USUARIO SIN SESIÓN -->
+
+            <div id="opcionesInvitado" class="opciones-cuenta">
+
+                <a href="login.html" class="boton-login">
+                    Iniciar sesión
+                </a>
+
+                <a href="registro.html" class="boton-cuenta">
+                    Crear cuenta
+                </a>
+
+            </div>
+
+            <!-- USUARIO CON SESIÓN -->
+
+            <div id="opcionesUsuario" class="opciones-cuenta" hidden>
+
+                <span id="nombreUsuario"></span>
+
+                <button type="button" id="btnCerrarSesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+
+    <nav class="menu-principal">
+
+        <ul>
+
+            <li>
+                <a href="index.html">TIENDA</a>
+            </li>
+
+            <li>
+                <a href="catalogo.html">CATÁLOGO</a>
+            </li>
+
+            <li>
+                <a href="busqueda.html">BUSCAR</a>
+            </li>
+
+            <li>
+                <a href="nosotros.html">NOSOTROS</a>
+            </li>
+
+            <li>
+                <a href="carrito.html">
+                    🛒 CARRITO
+                    <span class="contador-carrito">0</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main>
+
+        <section class="contenedor-formulario">
+
+            <h2>CREAR CUENTA</h2>
+
+            <p class="texto-ayuda">
+                Únete a Nexus Games y comienza tu aventura gamer.
+                Crea tu cuenta para formar parte de nuestra comunidad.
+            </p>
+
+            <form id="formRegistro">
+
+                <!-- NOMBRE -->
+
+                <label for="nombre">
+                    Nombre completo:
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Escribe tu nombre completo"
+                    autocomplete="name"
+                >
+
+
+                <!-- CORREO -->
+
+                <label for="email">
+                    Correo electrónico:
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="ejemplo@correo.com"
+                    pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                    autocomplete="email"
+                >
+
+
+                <!-- CONTRASEÑA -->
+
+                <label for="password">
+                    Contraseña:
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Crea una contraseña"
+                    autocomplete="new-password"
+                >
+
+
+                <!-- FECHA DE NACIMIENTO -->
+
+                <label for="fecha">
+                    Fecha de nacimiento:
+                </label>
+
+                <input
+                    type="date"
+                    id="fecha"
+                    name="fecha"
+                >
+
+
+                <!-- TELÉFONO -->
+
+                <label for="telefono">
+                    Número de teléfono:
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="9611234567"
+                    autocomplete="tel"
+                >
+
+
+                <!-- TÉRMINOS Y CONDICIONES -->
+
+                <div class="terminos">
+
+                    <input
+                        type="checkbox"
+                        id="aceptarTerminos"
+                        name="aceptarTerminos"
+                    >
+
+                    <label for="aceptarTerminos">
+                        Acepto los términos y condiciones
+                    </label>
+
+                </div>
+
+
+                <!-- BOTÓN REGISTRO -->
+
+                <button
+                    type="submit"
+                    id="btnRegistro"
+                    class="boton-acceso"
+                    disabled
+                >
+                    CREAR MI CUENTA
+                </button>
+
+
+                <!-- MENSAJE DE VALIDACIÓN -->
+
+                <p id="mensajeRegistro" aria-live="polite"></p>
+
+            </form>
+
+
+            <!-- INICIAR SESIÓN -->
+
+            <div class="enlace-registro">
+
+                <p>¿Ya tienes una cuenta en Nexus Games?</p>
+
+                <a href="login.html">
+                    INICIAR SESIÓN
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+   
+
+    <footer>
+
+        <h3>NEXUS GAMES</h3>
+
+        <p>Tu universo de videojuegos.</p>
+
+        <p>
+            &copy; 2026 Nexus Games -
+            Proyecto académico.
+        </p>
+
+    </footer>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

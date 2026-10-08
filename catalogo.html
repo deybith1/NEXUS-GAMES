@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus Games | Catálogo</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         ENCABEZADO
+    ====================================== -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+            <span class="logo-icono">🎮</span>
+            <h1>NEXUS <span>GAMES</span></h1>
+        </div>
+
+        <div class="encabezado-derecha">
+
+            <!-- USUARIO SIN SESIÓN -->
+
+            <div id="opcionesInvitado" class="opciones-cuenta">
+
+                <a href="login.html" class="boton-login">
+                    Iniciar sesión
+                </a>
+
+                <a href="registro.html" class="boton-cuenta">
+                    Crear cuenta
+                </a>
+
+            </div>
+
+            <!-- USUARIO CON SESIÓN -->
+
+            <div id="opcionesUsuario" class="opciones-cuenta" hidden>
+
+                <span id="nombreUsuario"></span>
+
+                <button type="button" id="btnCerrarSesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================
+         MENÚ DE NAVEGACIÓN
+    ====================================== -->
+
+    <nav class="menu-principal">
+
+        <ul>
+
+            <li>
+                <a href="index.html">TIENDA</a>
+            </li>
+
+            <li>
+                <a href="catalogo.html" class="activo">
+                    CATÁLOGO
+                </a>
+            </li>
+
+            <li>
+                <a href="busqueda.html">BUSCAR</a>
+            </li>
+
+            <li>
+                <a href="nosotros.html">NOSOTROS</a>
+            </li>
+
+            <li>
+                <a href="carrito.html">
+                    🛒 CARRITO
+                    <span class="contador-carrito">0</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================
+         CATÁLOGO DE VIDEOJUEGOS
+    ====================================== -->
+
+    <main>
+
+        <section class="seccion">
+
+            <h2>🎮 CATÁLOGO DE VIDEOJUEGOS</h2>
+
+            <p>
+                Descubre nuestros videojuegos disponibles.
+                Selecciona tus favoritos y agrégalos al carrito.
+            </p>
+
+            <div class="productos">
+
+
+                <!-- VIDEOJUEGO 1 -->
+
+                <article class="producto">
+
+                    <img
+                        src="img/juego1.png"
+                        alt="THE FOREST"
+                    >
+
+                    <h3>THE FOREST</h3>
+
+                    <p>$799 MXN</p>
+
+                    <button
+                        type="button"
+                        class="agregar-carrito"
+                        data-id="juego1"
+                        data-nombre="THE FOREST"
+                        data-precio="799"
+                        data-imagen="img/juego1.png"
+                    >
+                        🛒 Agregar al carrito
+                    </button>
+
+                </article>
+
+
+                <!-- VIDEOJUEGO 2 -->
+
+                <article class="producto">
+
+                    <img
+                        src="img/juego2.png"
+                        alt="Among Us"
+                    >
+
+                    <h3>Among Us</h3>
+
+                    <p>$699 MXN</p>
+
+                    <button
+                        type="button"
+                        class="agregar-carrito"
+                        data-id="juego2"
+                        data-nombre="Among Us"
+                        data-precio="699"
+                        data-imagen="img/juego2.png"
+                    >
+                        🛒 Agregar al carrito
+                    </button>
+
+                </article>
+
+
+                <!-- VIDEOJUEGO 3 -->
+
+                <article class="producto">
+
+                    <img
+                        src="img/juego3.png"
+                        alt="GTA V"
+                    >
+
+                    <h3>GTA V</h3>
+
+                    <p>$899 MXN</p>
+
+                    <button
+                        type="button"
+                        class="agregar-carrito"
+                        data-id="juego3"
+                        data-nombre="GTA V"
+                        data-precio="899"
+                        data-imagen="img/juego3.png"
+                    >
+                        🛒 Agregar al carrito
+                    </button>
+
+                </article>
+
+
+                <!-- VIDEOJUEGO 4 -->
+
+                <article class="producto">
+
+                    <img
+                        src="img/juego4.jpg"
+                        alt="Tomb Raider"
+                    >
+
+                    <h3>Tomb Raider</h3>
+
+                    <p>$599 MXN</p>
+
+                    <button
+                        type="button"
+                        class="agregar-carrito"
+                        data-id="juego4"
+                        data-nombre="Tomb Raider"
+                        data-precio="599"
+                        data-imagen="img/juego4.jpg"
+                    >
+                        🛒 Agregar al carrito
+                    </button>
+
+                </article>
+
+
+                <!-- VIDEOJUEGO 5 -->
+
+                <article class="producto">
+
+                    <img
+                        src="img/juego5.png"
+                        alt="American Truck Simulator"
+                    >
+
+                    <h3>American Truck Simulator</h3>
+
+                    <p>$499 MXN</p>
+
+                    <button
+                        type="button"
+                        class="agregar-carrito"
+                        data-id="juego5"
+                        data-nombre="American Truck Simulator"
+                        data-precio="499"
+                        data-imagen="img/juego5.png"
+                    >
+                        🛒 Agregar al carrito
+                    </button>
+
+                </article>
+
+
+                <!-- VIDEOJUEGO 6 -->
+
+                <article class="producto">
+
+                    <img
+                        src="img/juego6.png"
+                        alt="Minecraft"
+                    >
+
+                    <h3>Minecraft</h3>
+
+                    <p>$749 MXN</p>
+
+                    <button
+                        type="button"
+                        class="agregar-carrito"
+                        data-id="juego6"
+                        data-nombre="Minecraft"
+                        data-precio="749"
+                        data-imagen="img/juego6.png"
+                    >
+                        🛒 Agregar al carrito
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+   
+
+    <footer>
+
+        <h3>NEXUS GAMES</h3>
+
+        <p>Tu universo de videojuegos.</p>
+
+        
+
+    </footer>
+
+
+    <!-- JAVASCRIPT EXTERNO -->
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

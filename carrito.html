@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus Games | Mi carrito</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+            <span class="logo-icono">🎮</span>
+            <h1>NEXUS <span>GAMES</span></h1>
+        </div>
+
+        <div class="encabezado-derecha">
+
+            <div id="opcionesInvitado" class="opciones-cuenta">
+
+                <a href="login.html" class="boton-login">
+                    Iniciar sesión
+                </a>
+
+                <a href="registro.html" class="boton-cuenta">
+                    Crear cuenta
+                </a>
+
+            </div>
+
+            <div id="opcionesUsuario" class="opciones-cuenta" hidden>
+
+                <span id="nombreUsuario"></span>
+
+                <button id="btnCerrarSesion" type="button">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- MENÚ -->
+
+    <nav class="menu-principal">
+
+        <ul>
+
+            <li><a href="index.html">TIENDA</a></li>
+
+            <li><a href="catalogo.html">CATÁLOGO</a></li>
+
+            <li><a href="busqueda.html">BUSCAR</a></li>
+
+            <li><a href="nosotros.html">NOSOTROS</a></li>
+
+            <li>
+                <a href="carrito.html" class="activo">
+                    🛒 CARRITO
+                    <span class="contador-carrito">0</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- CARRITO -->
+
+    <main>
+
+        <section class="seccion">
+
+            <h2>🛒 MI CARRITO DE COMPRAS</h2>
+
+            <!-- CARRITO VACÍO -->
+
+            <div id="carritoVacio" class="carrito-vacio">
+
+                <div class="icono-vacio">🛒</div>
+
+                <h3>Tu carrito está vacío</h3>
+
+                <p>
+                    Todavía no has agregado videojuegos.
+                    Explora nuestro catálogo y encuentra
+                    tu próxima aventura.
+                </p>
+
+                <a href="catalogo.html" class="boton-principal">
+                    EXPLORAR VIDEOJUEGOS
+                </a>
+
+            </div>
+
+
+            <!-- PRODUCTOS DEL CARRITO -->
+
+            <div id="carritoContenido" hidden>
+
+                <div class="tabla-responsive">
+
+                    <table class="tabla-carrito">
+
+                        <thead>
+                            <tr>
+                                <th>Videojuego</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaCarrito">
+                            
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- RESUMEN -->
+
+                <div class="resumen-carrito">
+
+                    <h3>RESUMEN DE COMPRA</h3>
+
+                    <p>
+                        Productos:
+                        <span id="cantidadTotal">0</span>
+                    </p>
+
+                    <h2>
+                        Total:
+                        $<span id="total">0.00</span> MXN
+                    </h2>
+
+                    <div class="acciones-carrito">
+
+                        <a href="catalogo.html" class="boton-seguir">
+                            Seguir comprando
+                        </a>
+
+                        <button id="btnVaciarCarrito" type="button">
+                            Vaciar carrito
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        <h3>NEXUS GAMES</h3>
+
+        <p>Tu universo de videojuegos.</p>
+
+        
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Games | Inicio</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+
+<header class="encabezado">
+    <div class="logo">
+        <span class="logo-icono">🎮</span>
+        <h1>NEXUS <span>GAMES</span></h1>
+    </div>
+
+    <div class="encabezado-derecha">
+
+        <div id="opcionesInvitado" class="opciones-cuenta">
+            <a href="login.html" class="boton-login">
+                Iniciar sesión
+            </a>
+
+            <a href="registro.html" class="boton-cuenta">
+                Crear cuenta
+            </a>
+        </div>
+
+        <div id="opcionesUsuario" class="opciones-cuenta" hidden>
+            <span id="nombreUsuario"></span>
+
+            <button id="btnCerrarSesion" type="button">
+                Cerrar sesión
+            </button>
+        </div>
+
+    </div>
+</header>
+
+<nav class="menu-principal">
+    <ul>
+        <li><a href="index.html">TIENDA</a></li>
+        <li><a href="catalogo.html">CATÁLOGO</a></li>
+        <li><a href="busqueda.html">BUSCAR</a></li>
+        <li><a href="nosotros.html">NOSOTROS</a></li>
+        <li>
+            <a href="carrito.html">
+                🛒 CARRITO
+                <span class="contador-carrito">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+<main class="tienda">
+
+    <section class="hero">
+        <div class="hero-contenido">
+            <span class="etiqueta">BIENVENIDO A NEXUS GAMES</span>
+            <h2>Tu próxima gran aventura comienza aquí</h2>
+            <p>
+                Explora mundos increíbles, descubre nuevos juegos
+                y disfruta de las mejores aventuras.
+            </p>
+            <a href="catalogo.html" class="boton-principal">
+                EXPLORAR JUEGOS →
+            </a>
+        </div>
+    </section>
+
+    <section class="seccion-tienda">
+        <div class="titulo-seccion">
+            <h2>DESTACADOS Y RECOMENDADOS</h2>
+            <a href="catalogo.html">Ver todos →</a>
+        </div>
+
+        <div class="destacados">
+            <article class="juego-destacado">
+                <img src="img/juego1.png" alt="THE FOREST">
+                <div class="destacado-info">
+                    <span class="etiqueta">MÁS VENDIDO</span>
+                    <h3>THE FOREST</h3>
+                    <p>Explora un bosque misterioso y enfrenta peligros desconocidos.</p>
+                    <div class="precio-juego">
+                        <span>$799 MXN</span>
+                        <a href="catalogo.html">Ver juego →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="juego-destacado">
+                <img src="img/juego2.png" alt="among us">
+                <div class="destacado-info">
+                    <span class="etiqueta">RECOMENDADO</span>
+                    <h3>among us</h3>
+                    <p>disfruta de las mejores aventuras.</p>
+                    <div class="precio-juego">
+                        <span>$699 MXN</span>
+                        <a href="catalogo.html">Ver juego →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="seccion-tienda">
+        <div class="titulo-seccion">
+            <h2>OFERTAS ESPECIALES</h2>
+            <a href="catalogo.html">Explorar ofertas →</a>
+        </div>
+
+        <div class="ofertas">
+            <article class="tarjeta-oferta">
+                <img src="img/juego3.png" alt="GTA V">
+                <div class="oferta-info">
+                    <h3>GTA V</h3>
+                    <p>Acción</p>
+                    <div class="precio-oferta">
+                        <span class="descuento">-40%</span>
+                        <div>
+                            <del>$1,499</del>
+                            <strong>$899 MXN</strong>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tarjeta-oferta">
+                <img src="img/juego4.jpg" alt="tomb raider">
+                <div class="oferta-info">
+                    <h3>tomb raider</h3>
+                    <p>Aventura</p>
+                    <div class="precio-oferta">
+                        <span class="descuento">-50%</span>
+                        <div>
+                            <del>$1,198</del>
+                            <strong>$599 MXN</strong>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="tarjeta-oferta">
+                <img src="img/juego5.png" alt="American Truck Simulator">
+                <div class="oferta-info">
+                    <h3>American Truck Simulator</h3>
+                    <p>Simulación</p>
+                    <div class="precio-oferta">
+                        <span class="descuento">-50%</span>
+                        <div>
+                            <del>$998</del>
+                            <strong>$499 MXN</strong>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="seccion-tienda">
+        <div class="titulo-seccion">
+            <h2>EXPLORA POR CATEGORÍA</h2>
+        </div>
+
+        <ul class="lista-categorias">
+            <li><a href="catalogo.html">⚔️ ACCIÓN</a></li>
+            <li><a href="catalogo.html">🏎️ CARRERAS</a></li>
+            <li><a href="catalogo.html">⚽ DEPORTES</a></li>
+            <li><a href="catalogo.html">🗺️ AVENTURA</a></li>
+            <li><a href="catalogo.html">👻 TERROR</a></li>
+        </ul>
+    </section>
+
+    <section class="seccion-tienda">
+        <div class="titulo-seccion">
+            <h2>DESCUBRE MÁS</h2>
+        </div>
+        <p>
+            Encuentra tus próximos videojuegos favoritos en
+            nuestra colección de títulos digitales.
+        </p>
+        <p>
+            Visita también
+            <a href="https://store.steampowered.com/"
+               target="_blank" rel="noopener noreferrer">
+                Steam
+            </a>
+            para conocer más sobre las plataformas de videojuegos.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <h3>NEXUS GAMES</h3>
+    <p>Tu universo de videojuegos.</p>
+    <p>&copy; 2026 Nexus Games. Proyecto académico.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

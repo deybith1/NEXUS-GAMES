@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Nexus Games | Buscar videojuegos</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header class="encabezado">
+
+        <div class="logo">
+            <span class="logo-icono">🎮</span>
+            <h1>NEXUS <span>GAMES</span></h1>
+        </div>
+
+        <div class="encabezado-derecha">
+
+            <div id="opcionesInvitado" class="opciones-cuenta">
+
+                <a href="login.html" class="boton-login">
+                    Iniciar sesión
+                </a>
+
+                <a href="registro.html" class="boton-cuenta">
+                    Crear cuenta
+                </a>
+
+            </div>
+
+            <div id="opcionesUsuario"
+                 class="opciones-cuenta" hidden>
+
+                <span id="nombreUsuario"></span>
+
+                <button type="button" id="btnCerrarSesion">
+                    Cerrar sesión
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+
+    <nav class="menu-principal">
+        <ul>
+            <li>
+                <a href="index.html">TIENDA</a>
+            </li>
+
+            <li>
+                <a href="catalogo.html">CATÁLOGO</a>
+            </li>
+
+            <li>
+                <a href="busqueda.html" class="activo">
+                    BUSCAR
+                </a>
+            </li>
+
+            <li>
+                <a href="nosotros.html">NOSOTROS</a>
+            </li>
+
+            <li>
+                <a href="carrito.html">
+                    🛒 CARRITO
+                    <span class="contador-carrito">0</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main class="pagina-busqueda">
+
+        <section class="busqueda-hero">
+
+            <span class="nosotros-etiqueta">
+                EXPLORA NEXUS GAMES
+            </span>
+
+            <h2>🔎 BUSCADOR DE VIDEOJUEGOS</h2>
+
+            <p>
+                Encuentra tu próxima aventura.
+                Escribe el nombre de un videojuego
+                o una categoría para comenzar.
+            </p>
+
+        </section>
+
+        <!-- FORMULARIO DE BÚSQUEDA -->
+
+        <section class="seccion buscador">
+
+            <h2>🎮 BÚSQUEDA DE PRODUCTOS</h2>
+
+            <form id="formBusqueda">
+
+                <label for="buscarProducto">
+                    ¿Qué videojuego estás buscando?
+                </label>
+
+                <div class="busqueda-controles">
+
+                    <input
+                        type="text"
+                        id="buscarProducto"
+                        name="buscarProducto"
+                        placeholder="Ejemplo: Minecraft, carreras, acción"
+                        autocomplete="off"
+                    >
+
+                    <button type="submit"
+                            class="boton-principal">
+                        🔍 Buscar
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- RESULTADOS DE BÚSQUEDA -->
+
+        <section class="seccion resultados-seccion">
+
+            <h2>📋 RESULTADOS</h2>
+
+            <div id="resultadosBusqueda"
+                 aria-live="polite">
+
+                <p class="busqueda-inicial">
+                    Escribe algo en el buscador y presiona
+                    el botón Buscar para ver los resultados.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+   
+
+    <footer>
+
+        <h3>NEXUS GAMES</h3>
+
+        <p>Tu universo de videojuegos.</p>
+
+        <p>
+            © 2026 NEXUS GAMES |
+            Proyecto académico de comercio electrónico.
+        </p>
+
+    </footer>
+
+    
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
