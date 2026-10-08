@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             return Array.isArray(datos) ? datos : [];
-        } catch {
+        } catch (error) {
             return [];
         }
     }
@@ -24,11 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
     function obtenerUsuarioActual() {
         const correo = sessionStorage.getItem(CLAVE_SESION);
 
-        if (!correo) return null;
+        if (!correo) {
+            return null;
+        }
 
-        return obtenerCuentas().find(
-            cuenta => cuenta.email === correo
-        ) || null;
+        return obtenerCuentas().find(function (cuenta) {
+            return cuenta.email === correo;
+        }) || null;
     }
 
     function actualizarEncabezado() {
@@ -36,14 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const usuario = document.getElementById("opcionesUsuario");
         const nombre = document.getElementById("nombreUsuario");
 
-        if (!invitado || !usuario || !nombre) return;
+        if (!invitado || !usuario || !nombre) {
+            return;
+        }
 
         const cuenta = obtenerUsuarioActual();
 
         invitado.hidden = Boolean(cuenta);
         usuario.hidden = !cuenta;
 
-        nombre.textContent = cuenta ? "👤 " + cuenta.nombre : "";
+        nombre.textContent = cuenta
+            ? "👤 " + cuenta.nombre
+            : "";
     }
 
     actualizarEncabezado();
@@ -92,9 +98,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             mensajeRegistro.textContent = "";
 
-            if (!nombre || !email || !password.trim() ||
-                !fecha || !telefono) {
-
+            if (
+                !nombre ||
+                !email ||
+                !password.trim() ||
+                !fecha ||
+                !telefono
+            ) {
                 mensajeRegistro.textContent =
                     "Debes completar todos los campos.";
                 return;
@@ -103,9 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const expresionCorreo =
                 /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-            if (!expresionCorreo.test(email) ||
-                !emailInput.checkValidity()) {
-
+            if (
+                !expresionCorreo.test(email) ||
+                !emailInput.checkValidity()
+            ) {
                 mensajeRegistro.textContent =
                     "Ingresa un correo electrónico válido.";
                 return;
@@ -125,14 +136,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const cuentas = obtenerCuentas();
 
-            if (cuentas.some(cuenta => cuenta.email === email)) {
+            if (cuentas.some(function (cuenta) {
+                return cuenta.email === email;
+            })) {
                 mensajeRegistro.textContent =
                     "Este correo ya está registrado.";
                 return;
             }
 
-            
-            cuentas.push({ nombre, email });
+            // Demostración académica:
+            // No se almacena la contraseña.
+            cuentas.push({
+                nombre: nombre,
+                email: email
+            });
 
             try {
                 localStorage.setItem(
@@ -141,7 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 sessionStorage.setItem(CLAVE_SESION, email);
-            } catch {
+
+            } catch (error) {
                 mensajeRegistro.textContent =
                     "No fue posible guardar la cuenta.";
                 return;
@@ -172,9 +190,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const cuenta = obtenerCuentas().find(
-                usuario => usuario.email === email
-            );
+            const cuenta = obtenerCuentas().find(function (usuario) {
+                return usuario.email === email;
+            });
 
             if (!cuenta) {
                 mensaje.textContent =
@@ -182,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Inicio de sesión simulado para la práctica.
+           
             sessionStorage.setItem(CLAVE_SESION, email);
 
             window.location.replace("index.html");
@@ -190,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // =========================================
-    // 5. QUIÉNES SOMOS 
+    // 5. QUIÉNES SOMOS: VER MÁS / VER MENOS
     // =========================================
 
     const btnVerMas = document.getElementById("btnVerMas");
@@ -199,29 +217,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (btnVerMas && informacionExtra) {
 
-        // La información permanece oculta al entrar.
+      
         informacionExtra.hidden = true;
 
+        btnVerMas.textContent = "Ver más";
         btnVerMas.setAttribute("aria-expanded", "false");
+        btnVerMas.setAttribute(
+            "aria-controls",
+            "informacionExtra"
+        );
 
         btnVerMas.addEventListener("click", function () {
 
-            informacionExtra.hidden = !informacionExtra.hidden;
+            const mostrar = informacionExtra.hidden;
 
-            const visible = !informacionExtra.hidden;
+            informacionExtra.hidden = !mostrar;
 
-            btnVerMas.textContent =
-                visible ? "Ver menos" : "Ver más";
+            btnVerMas.textContent = mostrar
+                ? "Ver menos"
+                : "Ver más";
 
             btnVerMas.setAttribute(
                 "aria-expanded",
-                String(visible)
+                String(mostrar)
             );
+
         });
     }
 
     // =========================================
-    // 6. NOTIFICACIONES 
+    // 6. NOTIFICACIONES
     // =========================================
 
     function mostrarNotificacion(titulo, mensaje) {
@@ -229,7 +254,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const anterior =
             document.querySelector(".notificacion-carrito");
 
-        if (anterior) anterior.remove();
+        if (anterior) {
+            anterior.remove();
+        }
 
         const notificacion = document.createElement("div");
         notificacion.className = "notificacion-carrito";
@@ -337,7 +364,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.getItem(CLAVE_CARRITO) || "[]"
             );
 
-            if (!Array.isArray(datos)) return [];
+            if (!Array.isArray(datos)) {
+                return [];
+            }
 
             return datos.filter(function (producto) {
 
@@ -357,7 +386,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
-        } catch {
+        } catch (error) {
             return [];
         }
     }
@@ -374,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             return true;
 
-        } catch {
+        } catch (error) {
 
             mostrarNotificacion(
                 "Error",
@@ -401,10 +430,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const carrito = obtenerCarrito();
 
-        const cantidad = carrito.reduce(
-            (total, producto) => total + producto.cantidad,
-            0
-        );
+        const cantidad = carrito.reduce(function (total, producto) {
+            return total + producto.cantidad;
+        }, 0);
 
         document.querySelectorAll(".contador-carrito")
             .forEach(function (elemento) {
@@ -440,9 +468,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const carrito = obtenerCarrito();
 
-            const existente = carrito.find(
-                producto => producto.id === id
-            );
+            const existente = carrito.find(function (producto) {
+                return producto.id === id;
+            });
 
             if (existente) {
                 existente.cantidad++;
@@ -478,8 +506,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarCarrito() {
 
-        if (!listaCarrito || !carritoVacio ||
-            !carritoContenido) return;
+        if (!listaCarrito || !carritoVacio || !carritoContenido) {
+            return;
+        }
 
         const carrito = obtenerCarrito();
 
@@ -489,6 +518,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             carritoVacio.hidden = false;
             carritoContenido.hidden = true;
+
+            if (totalElemento) {
+                totalElemento.textContent = "0.00";
+            }
+
+            if (cantidadTotal) {
+                cantidadTotal.textContent = "0";
+            }
 
             return;
         }
@@ -508,6 +545,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cantidadGeneral += producto.cantidad;
 
             const fila = document.createElement("tr");
+            fila.dataset.id = producto.id;
 
             // IMAGEN Y NOMBRE
 
@@ -544,20 +582,27 @@ document.addEventListener("DOMContentLoaded", function () {
             inputCantidad.value = producto.cantidad;
             inputCantidad.className = "cantidad";
 
+            inputCantidad.setAttribute(
+                "aria-label",
+                "Cantidad de " + producto.nombre
+            );
+
             inputCantidad.addEventListener("input", function () {
 
                 const nuevaCantidad = Number(inputCantidad.value);
 
-                if (!Number.isSafeInteger(nuevaCantidad) ||
-                    nuevaCantidad < 1) {
+                if (
+                    !Number.isSafeInteger(nuevaCantidad) ||
+                    nuevaCantidad < 1
+                ) {
                     return;
                 }
 
                 const carritoActual = obtenerCarrito();
 
-                const actual = carritoActual.find(
-                    item => item.id === producto.id
-                );
+                const actual = carritoActual.find(function (item) {
+                    return item.id === producto.id;
+                });
 
                 if (actual) {
 
@@ -573,13 +618,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const nuevaCantidad = Number(inputCantidad.value);
 
-                if (!Number.isSafeInteger(nuevaCantidad) ||
-                    nuevaCantidad < 1) {
+                if (
+                    !Number.isSafeInteger(nuevaCantidad) ||
+                    nuevaCantidad < 1
+                ) {
 
-                    inputCantidad.value =
-                        obtenerCarrito().find(
-                            item => item.id === producto.id
-                        )?.cantidad || 1;
+                    const guardado = obtenerCarrito().find(function (item) {
+                        return item.id === producto.id;
+                    });
+
+                    inputCantidad.value = guardado
+                        ? guardado.cantidad
+                        : 1;
                 }
 
                 mostrarCarrito();
@@ -607,7 +657,9 @@ document.addEventListener("DOMContentLoaded", function () {
             btnEliminar.addEventListener("click", function () {
 
                 const nuevoCarrito = obtenerCarrito().filter(
-                    item => item.id !== producto.id
+                    function (item) {
+                        return item.id !== producto.id;
+                    }
                 );
 
                 if (guardarCarrito(nuevoCarrito)) {
@@ -649,7 +701,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function actualizarResumen() {
 
-        if (!listaCarrito) return;
+        if (!listaCarrito) {
+            return;
+        }
 
         const carrito = obtenerCarrito();
 
@@ -657,16 +711,20 @@ document.addEventListener("DOMContentLoaded", function () {
         let cantidad = 0;
 
         carrito.forEach(function (producto) {
-
             total += producto.precio * producto.cantidad;
             cantidad += producto.cantidad;
         });
 
         const filas = listaCarrito.querySelectorAll("tr");
 
-        filas.forEach(function (fila, indice) {
+        filas.forEach(function (fila) {
 
-            const producto = carrito[indice];
+            const id = fila.dataset.id;
+
+            const producto = carrito.find(function (item) {
+                return item.id === id;
+            });
+
             const celda = fila.querySelector(".subtotal");
 
             if (producto && celda) {
@@ -700,7 +758,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         btnVaciarCarrito.addEventListener("click", function () {
 
-            if (obtenerCarrito().length === 0) return;
+            if (obtenerCarrito().length === 0) {
+                return;
+            }
 
             if (guardarCarrito([])) {
 
@@ -729,83 +789,76 @@ document.addEventListener("DOMContentLoaded", function () {
         const resultadosBusqueda =
             document.getElementById("resultadosBusqueda");
 
-        formBusqueda.addEventListener("submit", function (event) {
+        if (campoBusqueda && resultadosBusqueda) {
 
-            event.preventDefault();
+            formBusqueda.addEventListener("submit", function (event) {
 
-            const textoBuscado = campoBusqueda.value.trim();
+                event.preventDefault();
 
-            
-            resultadosBusqueda.replaceChildren();
+                const textoBuscado = campoBusqueda.value.trim();
 
-            
+                resultadosBusqueda.replaceChildren();
 
-            if (textoBuscado === "") {
+                if (textoBuscado === "") {
 
-                const mensaje = document.createElement("p");
+                    const mensaje = document.createElement("p");
+                    mensaje.className = "mensaje-busqueda";
 
-                mensaje.className = "mensaje-busqueda";
+                    mensaje.textContent =
+                        "Por favor, escribe el nombre de un videojuego.";
 
-                mensaje.textContent =
-                    " Por favor, escribe el nombre de un videojuego.";
+                    resultadosBusqueda.appendChild(mensaje);
 
-                resultadosBusqueda.appendChild(mensaje);
+                    return;
+                }
 
-                return;
-            }
+                const titulo = document.createElement("h3");
+                titulo.className = "titulo-resultados";
 
-            
+                titulo.textContent =
+                    "Resultados para la búsqueda de " + textoBuscado;
 
-            const titulo = document.createElement("h3");
+                resultadosBusqueda.appendChild(titulo);
 
-            titulo.className = "titulo-resultados";
+                // Resultados
+                const productosFicticios = [
+                    PRODUCTOS.juego6,
+                    PRODUCTOS.juego3,
+                    PRODUCTOS.juego1,
+                    PRODUCTOS.juego2,
+                    PRODUCTOS.juego4,
+                    PRODUCTOS.juego5
+                ];
 
-            titulo.textContent =
-                "Resultados para la búsqueda de " + textoBuscado;
+                const lista = document.createElement("div");
+                lista.className = "lista-resultados";
 
-            resultadosBusqueda.appendChild(titulo);
+                productosFicticios.forEach(function (producto) {
 
-            
+                    const tarjeta = document.createElement("article");
+                    tarjeta.className = "resultado-producto";
 
-            const productosFicticios = [
-                PRODUCTOS.juego6,
-                PRODUCTOS.juego3,
-                PRODUCTOS.juego1,
-                PRODUCTOS.juego2,
-                PRODUCTOS.juego4,
-                PRODUCTOS.juego5
-            ];
+                    const nombre = document.createElement("h4");
+                    nombre.textContent = "🎮 " + producto.nombre;
 
-            // CONTENEDOR DE TARJETAS
+                    const categoria = document.createElement("p");
+                    categoria.textContent =
+                        "Categoría: " + producto.categoria;
 
-            const lista = document.createElement("div");
-            lista.className = "lista-resultados";
+                    const precio = document.createElement("strong");
+                    precio.textContent =
+                        "$" + formatoPrecio(producto.precio) + " MXN";
 
-            productosFicticios.forEach(function (producto) {
+                    tarjeta.appendChild(nombre);
+                    tarjeta.appendChild(categoria);
+                    tarjeta.appendChild(precio);
 
-                const tarjeta = document.createElement("article");
-                tarjeta.className = "resultado-producto";
+                    lista.appendChild(tarjeta);
+                });
 
-                const nombre = document.createElement("h4");
-                nombre.textContent = "🎮 " + producto.nombre;
-
-                const categoria = document.createElement("p");
-                categoria.textContent =
-                    "Categoría: " + producto.categoria;
-
-                const precio = document.createElement("strong");
-                precio.textContent =
-                    "$" + formatoPrecio(producto.precio) + " MXN";
-
-                tarjeta.appendChild(nombre);
-                tarjeta.appendChild(categoria);
-                tarjeta.appendChild(precio);
-
-                lista.appendChild(tarjeta);
+                resultadosBusqueda.appendChild(lista);
             });
-
-            resultadosBusqueda.appendChild(lista);
-        });
+        }
     }
 
 });
